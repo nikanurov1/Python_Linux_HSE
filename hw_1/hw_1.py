@@ -19,7 +19,7 @@ def web_crawler(url, depth):
         if not resp.ok or str(resp.status_code)[0] in ['4', '5']:
             return
 
-        if int(depth) >= 0:
+        if depth >= 0:
             for i in soup.findAll('a', attrs={'href': re.compile("http.")}):
                 link = i.get('href')
                 if urlparse(link).netloc.split('.')[-2] == urlparse(url).netloc.split('.')[-2] and link not in all_links.values():
