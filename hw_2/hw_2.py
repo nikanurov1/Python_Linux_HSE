@@ -55,7 +55,7 @@ class Calculator:
 if __name__ == '__main__':
     try:
         Calculator(sys.argv[1]).calculate()
-    except DivisionByZero:
+    except ZeroDivisionError:
         print('Ошибка, попробуй запустить калькулятор заново с корректным выражением')
     except Exception:
         print('Ошибка, попробуй запустить калькулятор заново с корректным выражением')
