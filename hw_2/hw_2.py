@@ -44,16 +44,16 @@ class Calculator:
 
     def calculate(self):
         self.parse()
-        while self.num_list != 1:
+        while len(self.num_list) > 1:
             for i in self.op_list:
                 d = self.operators.get(i)[1](self.num_list.pop(0), self.num_list.pop(0))
                 self.num_list = [d] + self.num_list
-        print(self.num_list[0])
+        return self.num_list[0]
 
 
 if __name__ == '__main__':
     try:
-        Calculator(sys.argv[1]).calculate()
+        print(Calculator(sys.argv[1]).calculate())
     except ZeroDivisionError:
         print('Ошибка, попробуй запустить калькулятор заново с корректным выражением')
     except Exception:
