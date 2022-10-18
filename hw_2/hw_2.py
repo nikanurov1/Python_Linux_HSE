@@ -26,7 +26,7 @@ class Calculator:
                 if self.formula[i - 1] in '(':
                     raise Exception
                 self.num_list.append(float(self.num))
-                num = ''
+                self.num = ''
                 if self.formula[i] in ')':
                     while self.op_list[-1] != '(':
                         d = self.operators.get(self.op_list.pop())[1](self.num_list.pop(-2), self.num_list.pop(-1))
