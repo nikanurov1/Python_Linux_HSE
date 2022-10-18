@@ -1,5 +1,4 @@
 import sys
-from decimal import DivisionByZero
 
 
 class Calculator:
@@ -37,7 +36,7 @@ class Calculator:
                     while self.op_list[-1] != '(':
                         d = self.operators.get(self.op_list.pop())[1](self.num_list.pop(-2), self.num_list.pop(-1))
                         self.num_list.append(d)
-                    break
+                    continue
             elif self.formula[i] in '1234567890.':
                 self.num += self.formula[i]
             if i == len(self.formula) - 1:
