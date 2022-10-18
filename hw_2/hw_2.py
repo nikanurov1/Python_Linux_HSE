@@ -27,16 +27,16 @@ class Calculator:
                     raise Exception
                 self.num_list.append(float(self.num))
                 num = ''
-                if len(self.op_list) != 0 and self.operators.get(self.formula[i])[0] < \
-                        self.operators.get(self.op_list[-1])[0]:
-                    d = self.operators.get(self.op_list.pop())[1](self.num_list.pop(-2), self.num_list.pop(-1))
-                    self.num_list.append(d)
-                self.op_list.append(self.formula[i])
                 if self.formula[i] in ')':
                     while self.op_list[-1] != '(':
                         d = self.operators.get(self.op_list.pop())[1](self.num_list.pop(-2), self.num_list.pop(-1))
                         self.num_list.append(d)
                     continue
+                if len(self.op_list) != 0 and self.operators.get(self.formula[i])[0] < \
+                        self.operators.get(self.op_list[-1])[0]:
+                    d = self.operators.get(self.op_list.pop())[1](self.num_list.pop(-2), self.num_list.pop(-1))
+                    self.num_list.append(d)
+                self.op_list.append(self.formula[i])
             elif self.formula[i] in '1234567890.':
                 self.num += self.formula[i]
             if i == len(self.formula) - 1:
