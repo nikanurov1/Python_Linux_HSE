@@ -46,7 +46,7 @@ class Calculator:
         self.parse()
         while self.num_list != 1:
             for i in self.op_list:
-                d = self.operators.get(self.op_list.pop())[1](self.num_list.pop(-2), self.num_list.pop(-1))
+                d = self.operators.get(i)[1](self.num_list.pop(0), self.num_list.pop(0))
                 self.num_list = [d] + self.num_list
         print(self.num_list[0])
 
